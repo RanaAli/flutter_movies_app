@@ -4,14 +4,14 @@ part 'popular_movies_model.g.dart';
 
 @JsonSerializable()
 class PopularMoviesModel {
-  int page;
-  int total_pages;
-  int total_resultsl;
+  int? page;
+  int? total_pages;
+  int? total_results;
 
   PopularMoviesModel({
-    required this.page,
-    required this.total_pages,
-    required this.total_resultsl
+    this.page,
+    this.total_pages,
+    this.total_results
   });
 
   factory PopularMoviesModel.fromJson(Map<String, dynamic> json) =>

@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/data/api_service.dart';
 import 'package:dio/dio.dart';
 import 'package:movies_app/data/models/popular_movies_model.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
@@ -24,15 +26,17 @@ class MyHomePage extends StatelessWidget {
     final dioOptions = BaseOptions(contentType: "application/json");
     dioOptions.headers["Authorization"] = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YTcwM2UwZDBjNWQzZmVhNTM4YmEyMjU0NjMyMDBkMyIsInN1YiI6IjU3YmExMGQ1YzNhMzY4NDVkNTAwMWU0MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Wj8VqhNq1_MJYwblRWyXovqxbPPhRksZPK5jUelBJI8";
     final dio = Dio(dioOptions);
-    dio.interceptors.add(LogInterceptor(
+    dio.interceptors.add(PrettyDioLogger(
       request: true,
       requestHeader: true,
       requestBody: true,
-      responseHeader: true,
+      responseHeader: false,
       responseBody: true,
       error: true,
+      maxWidth: 90,
+      enabled: kDebugMode,
     ));
-
+ 
     final apiService = ApiService(dio);
     return FutureBuilder(
       future: apiService.getPopularMovies(),
@@ -40,9 +44,9 @@ class MyHomePage extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.done) {
           if (snapshot.hasData) {
             final PopularMoviesModel data = snapshot.data!;
-            return Text(data.page.toString());
+            return ListWidget(data: data);
           } else
-            return Text(snapshot.error.toString());
+            return Text(snapshot.error.toString(), style: TextStyle(color: Colors.red));
         } else {
           return Center(
             child: CircularProgressIndicator(),
@@ -50,5 +54,19 @@ class MyHomePage extends StatelessWidget {
         }
       },
     );
+  }
+}
+
+class ListWidget extends StatelessWidget {
+  const ListWidget({
+    super.key,
+    required this.data,
+  });
+
+  final PopularMoviesModel data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(data.page.toString());
   }
 }
