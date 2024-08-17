@@ -1,15 +1,11 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/data/api/api_service.dart';
-import 'package:movies_app/data/infrastucture/http_infra.dart';
 import 'package:movies_app/data/models/popular_movies_model.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
 
   final String title;
-
-  final int counter = 0;
 
   @override
   Widget build(BuildContext context) {

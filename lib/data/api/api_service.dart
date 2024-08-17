@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:movies_app/data/api/api_constants.dart';
-import 'package:movies_app/data/infrastucture/http_infra.dart';
+import 'package:movies_app/data/infrastructure/http_infra.dart';
 import 'package:movies_app/data/models/popular_movies_model.dart';
 import 'package:retrofit/retrofit.dart';
 
