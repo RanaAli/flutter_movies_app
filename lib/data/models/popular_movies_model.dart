@@ -6,13 +6,13 @@ part 'popular_movies_model.g.dart';
 @JsonSerializable()
 class PopularMoviesModel {
   int? page;
-  List<MovieModel>? movies;
+  List<MovieModel>? results;
   int? total_pages;
   int? total_results;
 
   PopularMoviesModel({
     this.page,
-    this.movies,
+    this.results,
     this.total_pages,
     this.total_results
   });

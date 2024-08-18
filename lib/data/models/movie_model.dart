@@ -12,7 +12,9 @@ class MovieModel {
   String? originalTitle;
   String? overview;
   double? popularity;
+  @JsonKey(name: 'poster_path')
   String? posterPath;
+  @JsonKey(name: 'release_date')
   String? releaseDate;
   String? title;
   bool? video;
