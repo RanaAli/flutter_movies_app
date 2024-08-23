@@ -98,7 +98,7 @@ class ListWidget extends StatelessWidget {
               ),
             );
           },
-          placeholder: (context, url) => Container(
+          placeholder: (context, url) => SizedBox(
             height: height,
             width: width,
             child: const Center(child: CircularProgressIndicator()),
