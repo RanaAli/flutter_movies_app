@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/data/api/api_constants.dart';
@@ -15,11 +13,12 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(title),
-        ),
-        body: _body());
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(title),
+      ),
+      body: _body(),
+    );
   }
 
   FutureBuilder _body() {
@@ -31,13 +30,13 @@ class MyHomePage extends StatelessWidget {
             final PopularMoviesModel data = snapshot.data!;
             return ListWidget(data: data);
           } else {
-            return Text(snapshot.error.toString(),
-                style: const TextStyle(color: Colors.red));
+            return Text(
+              snapshot.error.toString(),
+              style: const TextStyle(color: Colors.red),
+            );
           }
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );
@@ -71,7 +70,9 @@ class ListWidget extends StatelessWidget {
       itemCount: items.length,
       // prototypeItem: moviesItemView(items.first),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, mainAxisExtent: 340),
+        crossAxisCount: 2,
+        mainAxisExtent: 340,
+      ),
       itemBuilder: (context, index) => moviesItemView(items[index]),
     );
 
@@ -94,7 +95,9 @@ class ListWidget extends StatelessWidget {
             return Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: imageProvider, fit: BoxFit.fitHeight),
+                  image: imageProvider,
+                  fit: BoxFit.fitHeight,
+                ),
               ),
             );
           },
