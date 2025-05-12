@@ -10,7 +10,7 @@ class MoviesItemView extends StatelessWidget{
 
   MovieModel item;
 
-  MoviesItemView(this.item);
+  MoviesItemView(this.item, {super.key});
 
 
   @override
