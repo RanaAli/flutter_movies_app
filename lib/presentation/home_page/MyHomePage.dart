@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/presentation/view_model/HomePageViewModel.dart';
-import 'package:movies_app/presentation/widgets/ListWidget.dart';
+import 'package:movies_app/presentation/home_page/view_model/HomePageViewModel.dart';
+import 'package:movies_app/presentation/home_page/widgets/ListWidget.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatelessWidget {
