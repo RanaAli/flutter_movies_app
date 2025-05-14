@@ -16,34 +16,21 @@ class ListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var pageCount = data.page;
-    var items = data.results!;
+    var items = data.results;
 
     return
-        // Column(
-        //   children: [
-        //   Padding(
-        //     padding: const EdgeInsets.all(8.0),
-        //     child: Text("Page = " + pageCount.toString()),
-        //   ),
-        //
-        //   SizedBox(height: 8.0)
-
         GridView.builder(
-      itemCount: items.length,
-      // prototypeItem: moviesItemView(items.first),
+      itemCount: items?.length ?? 0,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisExtent: 340,
       ),
-      itemBuilder: (context, index) => MoviesItemView(items[index]),
+      itemBuilder: (context, index) => MoviesItemView(items![index]),
     );
 
-    //   ],
-    // );
   }
 
   Column moviesItemView(MovieModel item) {
-    // debugPrint('imageUrl = : ' + item.posterPath.toString());
     double height = 280;
     double width = 200;
 

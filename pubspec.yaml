@@ -41,6 +41,9 @@ dependencies:
   cached_network_image: ^3.4.1
 
   dio: any
+  provider: 6.1.5
+  get_it: 8.0.3
+
 dev_dependencies:
   retrofit_generator: ^9.1.9
   build_runner: '>=2.3.0 <4.0.0'
