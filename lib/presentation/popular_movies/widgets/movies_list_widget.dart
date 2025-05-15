@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/data/api/api_constants.dart';
 import 'package:movies_app/data/models/movie_model.dart';
 import 'package:movies_app/data/models/popular_movies_model.dart';
-import 'package:movies_app/presentation/home_page/widgets/MoviesItemWidget.dart';
+import 'package:movies_app/presentation/popular_movies/widgets/movies_Item_widget.dart';
 
-class ListWidget extends StatelessWidget {
-  const ListWidget({
+class MoviesListWidget extends StatelessWidget {
+
+  const MoviesListWidget({
     super.key,
     required this.data,
   });

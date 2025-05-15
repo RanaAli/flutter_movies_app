@@ -4,7 +4,7 @@ import 'package:movies_app/data/infrastructure/http_infra.dart';
 import 'package:movies_app/data/infrastructure/result.dart';
 import 'package:movies_app/data/models/popular_movies_model.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:movies_app/data/infrastructure/ApiCallAdapter.dart';
+import 'package:movies_app/data/infrastructure/api_call_adapter.dart';
 
 part 'api_service.g.dart';
 

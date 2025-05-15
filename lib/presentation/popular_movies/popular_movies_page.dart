@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/presentation/home_page/cubit/popular_movies_cubit.dart';
-import 'package:movies_app/presentation/home_page/cubit/popular_movies_state.dart';
-import 'package:movies_app/presentation/home_page/widgets/ListWidget.dart';
+import 'package:movies_app/presentation/popular_movies/cubit/popular_movies_cubit.dart';
+import 'package:movies_app/presentation/popular_movies/cubit/popular_movies_state.dart';
+import 'package:movies_app/presentation/popular_movies/widgets/movies_list_widget.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class PopularMoviesPage extends StatefulWidget {
+  const PopularMoviesPage({super.key, required this.title});
 
   final String title;
 
@@ -13,7 +13,7 @@ class MyHomePage extends StatefulWidget {
   State<StatefulWidget> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<PopularMoviesPage> {
 
   @override
   void initState() {
@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
             case PopularMoviesLoadingState _:
               return const Center(child: CircularProgressIndicator());
             case PopularMoviesLoadedState _:
-              return ListWidget(data: state.data);
+              return MoviesListWidget(data: state.data);
             case PopularMoviesErrorState _:
               return Center(child: Text(state.error));
           }

@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/data/infrastructure/result.dart';
 import 'package:movies_app/data/models/popular_movies_model.dart';
 import 'package:movies_app/domain/repositories/MoviesRepository.dart';
-import 'package:movies_app/presentation/home_page/cubit/popular_movies_state.dart';
+import 'package:movies_app/presentation/popular_movies/cubit/popular_movies_state.dart';
 
 class PopularMoviesCubit extends Cubit<PopularMoviesState> {
   final MoviesRepository _moviesRepo;
