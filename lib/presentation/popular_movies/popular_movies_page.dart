@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/data/models/popular_movies_model.dart';
 import 'package:movies_app/presentation/popular_movies/cubit/popular_movies_cubit.dart';
 import 'package:movies_app/presentation/popular_movies/cubit/popular_movies_state.dart';
 import 'package:movies_app/presentation/popular_movies/widgets/movies_list_widget.dart';
@@ -14,7 +15,6 @@ class PopularMoviesPage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<PopularMoviesPage> {
-
   @override
   void initState() {
     super.initState();
@@ -37,7 +37,12 @@ class _MyHomePageState extends State<PopularMoviesPage> {
             case PopularMoviesLoadingState _:
               return const Center(child: CircularProgressIndicator());
             case PopularMoviesLoadedState _:
-              return MoviesListWidget(data: state.data);
+              return MoviesListWidget(
+                data: state.data,
+                callback: (item) {
+                  print("${item.title} == Callback Called");
+                },
+              );
             case PopularMoviesErrorState _:
               return Center(child: Text(state.error));
           }
@@ -47,5 +52,4 @@ class _MyHomePageState extends State<PopularMoviesPage> {
       ),
     );
   }
-
 }
