@@ -10,7 +10,7 @@ class MoviesItemView extends StatelessWidget{
 
   final MovieModel item;
 
-  MoviesItemView(this.item, {super.key});
+  const MoviesItemView(this.item, {super.key});
 
   @override
   Widget build(BuildContext context) {
