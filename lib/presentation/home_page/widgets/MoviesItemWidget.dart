@@ -12,7 +12,6 @@ class MoviesItemView extends StatelessWidget{
 
   MoviesItemView(this.item, {super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -49,6 +48,5 @@ class MoviesItemView extends StatelessWidget{
       ],
     );
   }
-
 
 }
