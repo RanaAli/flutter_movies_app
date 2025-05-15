@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/data/models/popular_movies_model.dart';
 import 'package:movies_app/presentation/popular_movies/cubit/popular_movies_cubit.dart';
 import 'package:movies_app/presentation/popular_movies/cubit/popular_movies_state.dart';
 import 'package:movies_app/presentation/popular_movies/widgets/movies_list_widget.dart';
