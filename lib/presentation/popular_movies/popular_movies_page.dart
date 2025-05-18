@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/app_ui_components/app_scaffold.dart';
-import 'package:movies_app/presentation/movie_details/movie_details_page.dart';
 import 'package:movies_app/presentation/popular_movies/cubit/popular_movies_cubit.dart';
 import 'package:movies_app/presentation/popular_movies/cubit/popular_movies_state.dart';
 import 'package:movies_app/presentation/popular_movies/widgets/movies_list_widget.dart';
+import 'package:movies_app/routes/app_routes.dart';
 
 class PopularMoviesPage extends StatefulWidget {
   const PopularMoviesPage({super.key});
@@ -35,13 +35,7 @@ class _MyHomePageState extends State<PopularMoviesPage> {
             case PopularMoviesLoadedState _:
               return MoviesListWidget(
                 data: state.data,
-                callback: (item) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const MovieDetailsPage(),
-                    ),
-                  );
-                },
+                callback: (item) => navigateToMovieDetailsPage(context, item),
               );
             case PopularMoviesErrorState _:
               return Center(child: Text(state.error));
