@@ -49,3 +49,5 @@ app.*.map.json
 .cxx
 
 /devtools_options.yaml
+/lib/data/mappers/movie_entity_mapper.auto_mappr.dart
+/lib/data/mappers/popular_movies_entity_mapper.auto_mappr.dart
