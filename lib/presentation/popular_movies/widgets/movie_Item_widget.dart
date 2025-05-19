@@ -4,10 +4,10 @@ import 'package:movies_app/data/responses/movie_response.dart';
 import 'package:movies_app/theme/sizes.dart';
 import 'package:movies_app/theme/app_text_styles.dart';
 
-class MoviesItemView extends StatelessWidget {
+class MovieItemView extends StatelessWidget {
   final MovieResponse item;
 
-  const MoviesItemView(this.item, {super.key});
+  const MovieItemView(this.item, {super.key});
 
   @override
   Widget build(BuildContext context) {
