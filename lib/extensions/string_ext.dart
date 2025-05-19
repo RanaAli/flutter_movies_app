@@ -1,5 +1,5 @@
-extension StringExtension<String> on String {
-  orEmpty() {
+extension StringExtension on String? {
+  String orEmpty() {
     return this ?? "";
   }
 }
