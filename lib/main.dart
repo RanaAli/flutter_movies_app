@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/data/api/api_service.dart';
@@ -18,17 +19,15 @@ class MyApp extends StatelessWidget {
       create: (context) => MoviesRepositoryRemote(getApiService()),
       child: BlocProvider(
         create: (context) => PopularMoviesCubit(
-            RepositoryProvider.of<MoviesRepositoryRemote>(context)),
+          RepositoryProvider.of<MoviesRepositoryRemote>(context),
+        ),
         child: MaterialApp(
           title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
+          theme: FlexThemeData.light(scheme: FlexScheme.bahamaBlue),
+          darkTheme: FlexThemeData.dark(scheme: FlexScheme.bahamaBlue),
           home: const PopularMoviesPage(),
         ),
       ),
     );
   }
-
 }

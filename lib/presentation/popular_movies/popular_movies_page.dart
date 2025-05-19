@@ -25,24 +25,27 @@ class _MyHomePageState extends State<PopularMoviesPage> {
   Widget build(BuildContext context) {
     return AppScaffold(
       title: "Popular Movies",
-      body: BlocBuilder<PopularMoviesCubit, PopularMoviesState>(
-        builder: (context, state) {
-          switch (state) {
-            case PopularMoviesInitialState _:
-              return const Center(child: CircularProgressIndicator());
-            case PopularMoviesLoadingState _:
-              return const Center(child: CircularProgressIndicator());
-            case PopularMoviesLoadedState _:
-              return MoviesListWidget(
-                data: state.data,
-                callback: (item) => navigateToMovieDetailsPage(context, item),
-              );
-            case PopularMoviesErrorState _:
-              return Center(child: Text(state.error));
-          }
+      body: Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: BlocBuilder<PopularMoviesCubit, PopularMoviesState>(
+          builder: (context, state) {
+            switch (state) {
+              case PopularMoviesInitialState _:
+                return const Center(child: CircularProgressIndicator());
+              case PopularMoviesLoadingState _:
+                return const Center(child: CircularProgressIndicator());
+              case PopularMoviesLoadedState _:
+                return MoviesListWidget(
+                  data: state.data,
+                  callback: (item) => navigateToMovieDetailsPage(context, item),
+                );
+              case PopularMoviesErrorState _:
+                return Center(child: Text(state.error));
+            }
 
-          return const Center(child: Text("No Data"));
-        },
+            return const Center(child: Text("No Data"));
+          },
+        ),
       ),
     );
   }
