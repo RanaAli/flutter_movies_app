@@ -1,6 +1,6 @@
 import 'package:movies_app/data/api/api_service.dart';
 import 'package:movies_app/data/infrastructure/result.dart';
-import 'package:movies_app/data/models/popular_movies_model.dart';
+import 'package:movies_app/data/responses/popular_movies_response.dart';
 import 'package:movies_app/domain/repositories/MoviesRepository.dart';
 
 class MoviesRepositoryRemote extends MoviesRepository {
@@ -9,7 +9,7 @@ class MoviesRepositoryRemote extends MoviesRepository {
   MoviesRepositoryRemote(this.service);
 
   @override
-  Future<Result<PopularMoviesModel>> getPopularMovies() {
+  Future<Result<PopularMoviesResponse>> getPopularMovies() {
     return service.getPopularMovies();
   }
 }

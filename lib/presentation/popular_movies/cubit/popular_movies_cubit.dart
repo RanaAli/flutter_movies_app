@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/data/infrastructure/result.dart';
-import 'package:movies_app/data/models/popular_movies_model.dart';
+import 'package:movies_app/data/responses/popular_movies_response.dart';
 import 'package:movies_app/domain/repositories/MoviesRepository.dart';
 import 'package:movies_app/presentation/popular_movies/cubit/popular_movies_state.dart';
 
@@ -16,9 +16,9 @@ class PopularMoviesCubit extends Cubit<PopularMoviesState> {
       final result = await _moviesRepo.getPopularMovies();
 
       switch (result) {
-        case Ok<PopularMoviesModel>():
+        case Ok<PopularMoviesResponse>():
           emit(PopularMoviesLoadedState(result.value));
-        case Error<PopularMoviesModel>():
+        case Error<PopularMoviesResponse>():
           emit(PopularMoviesErrorState(result.error));
       }
     } on Exception catch (e) {

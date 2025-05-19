@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/app_ui_components/movie_image_widget.dart';
-import 'package:movies_app/data/models/movie_model.dart';
+import 'package:movies_app/data/responses/movie_response.dart';
 import 'package:movies_app/theme/sizes.dart';
 
 class MoviesItemView extends StatelessWidget {
 
-  final MovieModel item;
+  final MovieResponse item;
 
   const MoviesItemView(this.item, {super.key});
 

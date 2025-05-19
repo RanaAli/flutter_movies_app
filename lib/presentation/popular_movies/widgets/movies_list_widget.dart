@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/data/models/movie_model.dart';
-import 'package:movies_app/data/models/popular_movies_model.dart';
+import 'package:movies_app/data/responses/movie_response.dart';
+import 'package:movies_app/data/responses/popular_movies_response.dart';
 import 'package:movies_app/presentation/popular_movies/widgets/movies_Item_widget.dart';
 
 class MoviesListWidget extends StatelessWidget {
   MoviesListWidget({super.key, required this.data, this.callback});
 
-  PopularMoviesModel data;
-  Function(MovieModel)? callback;
+  PopularMoviesResponse data;
+  Function(MovieResponse)? callback;
 
   @override
   Widget build(BuildContext context) {

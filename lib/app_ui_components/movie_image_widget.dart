@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/data/api/api_constants.dart';
-import 'package:movies_app/data/models/movie_model.dart';
+import 'package:movies_app/data/responses/movie_response.dart';
 
 class MovieImageWidget extends StatelessWidget {
   const MovieImageWidget({
@@ -11,7 +11,7 @@ class MovieImageWidget extends StatelessWidget {
     required this.width,
   });
 
-  final MovieModel item;
+  final MovieResponse item;
   final double height;
   final double width;
 

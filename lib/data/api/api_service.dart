@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:movies_app/data/api/api_constants.dart';
 import 'package:movies_app/data/infrastructure/http_infra.dart';
 import 'package:movies_app/data/infrastructure/result.dart';
-import 'package:movies_app/data/models/popular_movies_model.dart';
+import 'package:movies_app/data/responses/popular_movies_response.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:movies_app/data/infrastructure/api_call_adapter.dart';
 
@@ -17,5 +17,5 @@ abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
   @GET(ApiConstants.getPopularMovies)
-  Future<Result<PopularMoviesModel>> getPopularMovies();
+  Future<Result<PopularMoviesResponse>> getPopularMovies();
 }

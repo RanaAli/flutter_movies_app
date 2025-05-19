@@ -1,4 +1,4 @@
-import 'package:movies_app/data/models/popular_movies_model.dart';
+import 'package:movies_app/data/responses/popular_movies_response.dart';
 
 abstract class PopularMoviesState {}
 
@@ -7,7 +7,7 @@ class PopularMoviesInitialState extends PopularMoviesState {}
 class PopularMoviesLoadingState extends PopularMoviesState {}
 
 class PopularMoviesLoadedState extends PopularMoviesState {
-  final PopularMoviesModel data;
+  final PopularMoviesResponse data;
 
   PopularMoviesLoadedState(this.data);
 }
