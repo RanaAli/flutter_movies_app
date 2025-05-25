@@ -15,20 +15,18 @@ class MoviesListWidget extends StatelessWidget {
     var items = data.results;
 
     return GridView.builder(
-      itemCount: items?.length ?? 0,
+      itemCount: items.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisExtent: 340,
       ),
-      itemBuilder: (context, index) => items == null
-          ? Center(child: Text("Null"))
-          : InkWell(
-              splashColor: Colors.grey,
-              onTap: () {
-                callback?.call(items[index]);
-              },
-              child: MovieItemView(items[index]),
-            ),
+      itemBuilder: (context, index) => InkWell(
+        splashColor: Theme.of(context).colorScheme.primary,
+        onTap: () {
+          callback?.call(items[index]);
+        },
+        child: MovieItemView(items[index]),
+      ),
     );
   }
 }

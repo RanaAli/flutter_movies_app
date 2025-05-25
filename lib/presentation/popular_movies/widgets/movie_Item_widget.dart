@@ -14,7 +14,10 @@ class MovieItemView extends StatelessWidget {
     return Column(
       children: [
         MovieImageWidget(
-            item: item, height: thumbImageHeight, width: thumbImageWidth),
+          item: item,
+          height: thumbImageHeight,
+          width: thumbImageWidth,
+        ),
         Text(item.title.toString(), style: AppTextStyles.title),
         Text(item.releaseDate.toString(), style: AppTextStyles.body),
       ],
